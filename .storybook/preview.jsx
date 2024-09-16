@@ -12,7 +12,6 @@ const preview = {
     },
     decorators: [
         (Story, context) => {
-            console.log(context);
             useEffect(() => {
                 // build up
                 if (context?.args?.uswdsBehaviorJs) uswdsInitComponent(context.args.uswdsBehaviorJs);
@@ -40,13 +39,16 @@ const preview = {
  * @param component - USWDS component receptor behavior
  */
 const uswdsInitComponent = (component) => {
+    console.log(component);
     const target = document.body;
     if (Array.isArray(component)) {
         component.forEach((comp) => {
             comp.on(target);
         });
+        console.log('if');
     } else {
         component.on(target);
+        console.log(component.on(target));
     }
 };
 

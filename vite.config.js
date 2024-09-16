@@ -7,6 +7,16 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    // resolve: {
+    //     alias: {
+    //         '@uswds/uswds/src/js/components': path.resolve(__dirname, '@uswds/uswds/packages/uswds-core/src/js/index.js'),
+    //     },
+    // },
+    optimizeDeps: {
+        //include: ['@uswds/uswds']
+        //include: ['@uswds/uswds/packages/uswds-core/src/js/index.js']
+        //include: ['@uswds/uswds/packages/usa-accordion/src/index.js']
+    },
     plugins: [
         react(),
         twig({

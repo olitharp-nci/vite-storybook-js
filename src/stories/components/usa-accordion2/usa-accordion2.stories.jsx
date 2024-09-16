@@ -2,7 +2,7 @@ import Component from './content/usa-accordion.twig';
 import css from './index.scss?inline';
 
 import { DefaultContent } from './content';
-import { accordion } from '@uswds/uswds';
+import * as accordion from '@uswds/uswds/js/usa-accordion';
 
 export default {
     title: 'Components/Accordion2/Default',
