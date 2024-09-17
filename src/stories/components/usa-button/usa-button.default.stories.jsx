@@ -5,7 +5,7 @@ export default {
     title: 'Components/Button/Default',
     tags: ['autodocs'],
     component: Component,
-    args: {css}
+    parameters: {css}
 };
 
 const buttonStyles = [

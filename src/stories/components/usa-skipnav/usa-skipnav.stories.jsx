@@ -5,7 +5,7 @@ export default {
     title: 'Components/Skipnav/Default',
     tags: ['autodocs'],
     component: Component,
-    args: { css }
+    parameters: { css }
 };
 
 // For this example we want to use the skipnav component twig, but also need

@@ -5,13 +5,15 @@ import { DefaultContent } from './content';
 import { USAAccordion } from '@nciocpl/ncids-js/usa-accordion';
 
 export default {
-    title: 'Components/Accordion/Default',
+    title: 'USWDS/Components/Accordion/Default',
     tags: ['autodocs'],
     component: Component,
     args: {
+    },
+    parameters : {
         ncidsInitJs: () => USAAccordion.createAll(),
         css
-    },
+    }
 };
 
 // For this example we want to use the skipnav component twig, but also need

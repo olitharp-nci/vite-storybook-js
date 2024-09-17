@@ -12,19 +12,23 @@ const preview = {
     },
     decorators: [
         (Story, context) => {
+            const { args, parameters } = context;
+
             useEffect(() => {
+                console.log('s', Story);
+                console.log('c', context);
                 // build up
-                if (context?.args?.uswdsBehaviorJs) uswdsInitComponent(context.args.uswdsBehaviorJs);
-                const initializedNcidsInstances = (context?.args?.ncidsInitJs) ? ncidsInitComponent(context.args.ncidsInitJs) : [];
+                if (parameters?.uswdsBehaviorJs) uswdsInitComponent(parameters.uswdsBehaviorJs);
+                const initializedNcidsInstances = (parameters?.ncidsInitJs) ? ncidsInitComponent(parameters.ncidsInitJs) : [];
                 return () => {
                     // tear down
-                    if (context?.args?.uswdsBehaviorJs) uswdsDestroyComponent(context.args.uswdsBehaviorJs);
+                    if (parameters?.uswdsBehaviorJs) uswdsDestroyComponent(parameters.uswdsBehaviorJs);
                     if (initializedNcidsInstances.length > 0) ncidsDestroyComponent(initializedNcidsInstances);
                 };
             }, []);``
             return (
                 <>
-                    <style type="text/css">{context?.args?.css}</style>
+                    <style type="text/css">{parameters?.css}</style>
                     <Story/>
                 </>
 
@@ -39,7 +43,6 @@ const preview = {
  * @param component - USWDS component receptor behavior
  */
 const uswdsInitComponent = (component) => {
-    console.log(component);
     const target = document.body;
     if (Array.isArray(component)) {
         component.forEach((comp) => {
@@ -48,7 +51,6 @@ const uswdsInitComponent = (component) => {
         console.log('if');
     } else {
         component.on(target);
-        console.log(component.on(target));
     }
 };
 
